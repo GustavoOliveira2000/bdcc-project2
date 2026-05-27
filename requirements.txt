@@ -1,0 +1,10 @@
+# Big Data / Distributed Processing
+pyspark
+dask[complete]
+distributed
+joblib
+
+# Jupyter
+jupyter
+ipykernel
+notebook
