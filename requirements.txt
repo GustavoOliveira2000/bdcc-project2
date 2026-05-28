@@ -13,3 +13,7 @@ notebook
 
 scikit-learn
 xgboost
+
+# Helper Libraries
+requests
+pydantic
