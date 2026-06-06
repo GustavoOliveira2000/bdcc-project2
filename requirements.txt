@@ -18,3 +18,4 @@ dask_ml
 # Helper Libraries
 requests
 pydantic
+matplotlib
