@@ -1,0 +1,25 @@
+[project]
+name = "bdcc-project2"
+version = "0.1.0"
+description = "Environment for BDCC Project 2 pipelines and benchmarks"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+pip = "*"
+openjdk = "*"
+cmake = "*"
+pyspark = "*"
+dask = "*"
+distributed = "*"
+joblib = "*"
+scikit-learn = "*"
+xgboost = "*"
+dask-ml = "*"
+requests = "*"
+pydantic = "*"
+matplotlib = "*"
+jupyter = "*"
+notebook = "*"
+ipykernel = "*"
