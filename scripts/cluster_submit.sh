@@ -1,3 +1,3 @@
-gcloud dataproc jobs submit pyspark scripts/check_imports.py \
+gcloud dataproc jobs submit pyspark $1 \
     --cluster=final-v02 \
     --region=europe-west1 \

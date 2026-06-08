@@ -43,10 +43,12 @@ print("All imports successful!")
 def resolve_scheduler_address() -> str:
     explicit_address = os.environ.get("DASK_SCHEDULER_ADDRESS")
     if explicit_address:
+        print(f"Using explicitly provided Dask scheduler address: {explicit_address}")
         return explicit_address
 
     explicit_host = os.environ.get("DASK_SCHEDULER_HOST")
     if explicit_host:
+        print(f"Using explicitly provided Dask scheduler host: {explicit_host}")
         return f"tcp://{explicit_host}:8786"
 
     metadata_url = (
@@ -64,9 +66,12 @@ def resolve_scheduler_address() -> str:
         master_host = ""
 
     if master_host:
+        print(f"Using Dask scheduler host from metadata: {master_host}")
         return f"tcp://{master_host}:8786"
 
+    print("Falling back to localhost Dask scheduler address")
     return "tcp://127.0.0.1:8786"
+
 
 print("Connecting cleanly to Dataproc's Standalone Dask Scheduler...")
 
@@ -79,8 +84,17 @@ print(f"Connected Successfully!")
 print(f"Cluster Details: {client}")
 print(f"Live Dashboard URL: {client.dashboard_link}")
 print("--------------------------------------------------")
+info = client.scheduler_info()
 
-# --- YOUR NORMAL BENCHMARK PIPELINE RUNS HERE ---
+n_processes = len(info["workers"])
+n_threads = sum(w["nthreads"] for w in info["workers"].values())
+total_memory = sum(w["memory_limit"] for w in info["workers"].values())
+
+print(f"Processes: {n_processes}")
+print(f"Threads: {n_threads}")
+print(f"Memory: {ByteSize(total_memory).human_readable()}")
+
+# --- YOUR NORMAL BENCHMARK PIPELINE RUNS HERE --Cluster Details: <Client: 'tcp://10.132.0.30:8786' processes=3 threads=10, memory=38.98 GiB>-
 # Data flows naturally from Cloud Storage to your cluster workers
 # df = dd.read_parquet('gs://bdcc-assignment2-bucket/nyc_taxi/')
 # print(df.groupby('passenger_count').trip_distance.mean().compute())
