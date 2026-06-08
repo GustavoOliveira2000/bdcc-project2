@@ -9,7 +9,7 @@ platforms = ["linux-64"]
 python = "3.14.*"
 pip = "*"
 setuptools = "<81"
-openjdk = "*"
+openjdk = "==17.0.10"
 cmake = "*"
 pyspark = "*"
 dask = "*"

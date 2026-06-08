@@ -144,7 +144,7 @@ dependencies:
 - nlohmann_json ==3.12.0 h54a6638_1
 - numba ==0.65.1 py314h8169c2f_1
 - numpy ==2.4.6 py314h2b28147_0
-- openjdk ==25.0.2 ha668962_0
+- openjdk ==17.0.10 h4260e57_0
 - openjpeg ==2.5.4 h55fea9a_0
 - openldap ==2.6.13 hbde042b_0
 - openssl ==3.6.2 h35e630c_0

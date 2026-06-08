@@ -17,7 +17,7 @@ def all_data_sources(year: int = 2024) -> Generator[str]:
 
 def downloader():
     bucket_name = "bdcc_code_v03"
-    for year in range(2009, 2024):
+    for year in range(2025, 2026):
         for data_source in all_data_sources(year):
             response = requests.get(data_source)
             response.raise_for_status()

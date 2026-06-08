@@ -1,7 +1,7 @@
 --region: europe-west1
 --zone: "" # Let GCP choose the zone within the region
 --image-version: 2.3-ubuntu22
---master-machine-type: n4-standard-2
+--master-machine-type: n4-standard-8
 --initialization-actions:
   - gs://bdcc_code_v03/dask/dask.sh
 --initialization-action-timeout: 60m
@@ -12,5 +12,5 @@
 --optional-components:
   - JUPYTER
 --enable-component-gateway:
---master-boot-disk-size: 50GB
---worker-boot-disk-size: 50GB
+--master-boot-disk-size: 100GB
+--worker-boot-disk-size: 100GB
