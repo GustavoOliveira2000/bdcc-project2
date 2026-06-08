@@ -19,3 +19,5 @@ dask_ml
 requests
 pydantic
 matplotlib
+setuptools<81
+gcsfs

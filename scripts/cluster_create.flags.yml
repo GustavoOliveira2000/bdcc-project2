@@ -2,21 +2,13 @@
 --zone: "" # Let GCP choose the zone within the region
 --image-version: 2.3-ubuntu22
 --master-machine-type: n4-standard-2
-# --master-accelerator:
-#   type: nvidia-tesla-t4
-#   count: 0
-# --initialization-actions:
-#   - gs://bdcc_code_v03/gpu/install_gpu_driver.sh
-#   - gs://bdcc_code_v03/dask/dask.sh
-#   - gs://bdcc_code_v03/rapids/rapids.sh
-#   - gs://bdcc_code_v03/python/pip-install.sh
-# --initialization-action-timeout: 60m
+--initialization-actions:
+  - gs://bdcc_code_v03/dask/dask.sh
+--initialization-action-timeout: 60m
+--properties:
+  dataproc:conda.env.config.uri: gs://bdcc_code_v03/conda-env.yml
 --metadata:
-  gpu-driver-provider: NVIDIA
-  dask-runtime: yarn
-  rapids-runtime: DASK
-  rapids-version: '21.06'
-  # PIP_PACKAGES: scanpy==1.8.1,wget
+  dask-runtime: standalone
 --optional-components:
   - JUPYTER
 --enable-component-gateway:

@@ -1,4 +1,7 @@
-
+.venv
+.pixi
+.mypy_cache
+**/__pycache__
 /venv-bdcc
 .ipynb_checkpoints/
 data/
